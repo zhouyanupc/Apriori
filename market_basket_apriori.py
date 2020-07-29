@@ -1,5 +1,7 @@
 import pandas as pd
+from efficient_apriori import apriori
 
+# 数据加载
 data = pd.read_csv('Market_Basket_Optimisation.csv', header=None)
 
 # print(data.shape) # (7501, 20)
@@ -13,7 +15,7 @@ for i in range(0,data.shape[0]):
     transactions.append(temp)
 # print(transactions)
 # 挖掘频繁项集和关联规则
-from efficient_apriori import apriori
+
 itemsets, rules = apriori(transactions, min_support=0.02, min_confidence=0.4)
 print('频繁项集:', itemsets)
 print('关联规则:', rules)
